@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/chlee7139/저장소/코딩/bf-compiler/bf-complier.csproj",
+      "projectUniqueName": "/Users/chlee7139/Repositorio/Programación/bf-compiler/bf-complier.csproj",
       "projectName": "bf-complier",
-      "projectPath": "/Users/chlee7139/저장소/코딩/bf-compiler/bf-complier.csproj",
+      "projectPath": "/Users/chlee7139/Repositorio/Programación/bf-compiler/bf-complier.csproj",
       "packagesPath": "/Users/chlee7139/.nuget/packages/",
-      "outputPath": "/Users/chlee7139/저장소/코딩/bf-compiler/obj/",
+      "outputPath": "/Users/chlee7139/Repositorio/Programación/bf-compiler/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/chlee7139/.nuget/NuGet/NuGet.Config"
