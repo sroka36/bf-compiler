@@ -62,7 +62,6 @@ for (int i = 0; i < input.Length; i++)
             }
             break;
     }
-
 }
 
 //마지막 문자 오류 제거
