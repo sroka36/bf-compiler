@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("bf-complier")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ddc2e23b52860b4784bc71d4ed3be0c34d6c83a9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+48ad526e3f8be1af42492d249ee9b48756b73c74")]
 [assembly: System.Reflection.AssemblyProductAttribute("bf-complier")]
 [assembly: System.Reflection.AssemblyTitleAttribute("bf-complier")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
