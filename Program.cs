@@ -70,6 +70,8 @@ for (int i = 0; i < input.Length; i++)
             {
                 i = save_loc2[pos] - 1;
                 save_loc1[pos] = -1; save_loc2[pos] = -1;
+                //pos -1 대처하는게 어렵다..
+                pos -= 1;
 
             }
             break;
