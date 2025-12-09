@@ -32,7 +32,7 @@ if(input == string.Empty || input == null){
 //본 구문
 for (int i = 0; i < input.Length; i++)
 {
-    Console.WriteLine(pos + " " + i);
+    Console.WriteLine(String.Join(" ", save_loc2));
     switch (input[i])
     {
         case '+':
@@ -56,23 +56,26 @@ for (int i = 0; i < input.Length; i++)
             {
                 save_loc1[pos] = i;
             }
-            if (save_loc1[pos] != -1 && save_loc1.Count < pos + 2)
-            {
+            if (save_loc1[pos] != i)
+            {   
                 pos += 1;
-                
-                if (save_loc2.Count < pos + 1) { 
-                    save_loc1.Add(-1); 
-                    save_loc2.Add(-1);
-                }
+                save_loc1.Add(-1); 
+                save_loc2.Add(-1);
                 save_loc1[pos] = i;
             }
             if (pointer[loc] == 0)
             {
-                i = save_loc2[pos] - 1;
-                save_loc1[pos] = -1; save_loc2[pos] = -1;
-                //pos -1 대처하는게 어렵다..
-                pos -= 1;
-
+                i = save_loc2[pos];
+                if(save_loc1.Count <= 1)
+                {
+                    save_loc1[pos] = -1; save_loc2[pos] = -1;
+                }
+                else
+                {
+                    save_loc1.RemoveAt(pos);
+                    save_loc2.RemoveAt(pos);
+                    pos -= 1;
+                }
             }
             break;
         case ']':
