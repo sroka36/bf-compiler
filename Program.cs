@@ -32,7 +32,8 @@ if(input == string.Empty || input == null){
 //본 구문
 for (int i = 0; i < input.Length; i++)
 {
-    Console.WriteLine(String.Join(" ", save_loc2));
+    Console.WriteLine(String.Join(" ,", save_loc2) + " " + pos);
+    //Console.WriteLine(i);
     switch (input[i])
     {
         case '+':
