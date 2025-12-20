@@ -11,14 +11,12 @@ pointer.Add(0);
 int loc = 0;
 
 //루프 위치 변수
-/**
-int save_loc1 = -1;
-int save_loc2 = -1;
-**/
 List<int> save_loc1 = [];
-save_loc1.Add(-1);
+
 List<int> save_loc2 = [];
-save_loc2.Add(-1);
+
+
+List<int> temporary = [];
 
 int pos = 0;
 
@@ -29,11 +27,26 @@ if(input == string.Empty || input == null){
     Environment.Exit(0);
 }
 
+for(int j = 0; j < input.Length; j++)
+{
+    switch(input[j]){
+        case '[':
+            temporary.Add(j);
+            break;
+        case ']':
+            if(temporary.Count != 0){
+                save_loc1.Add(temporary[temporary.Count - 1]);
+                save_loc2.Add(j);
+                temporary.RemoveAt(temporary.Count - 1);
+            }
+            break;
+    }
+}
+
+
 //본 구문
 for (int i = 0; i < input.Length; i++)
 {
-    Console.WriteLine(String.Join(" ,", save_loc2) + " " + pos);
-    //Console.WriteLine(i);
     switch (input[i])
     {
         case '+':
@@ -53,40 +66,16 @@ for (int i = 0; i < input.Length; i++)
             Console.Write(Convert.ToChar(pointer[loc]));
             break;
         case '[':
-            if (save_loc1[pos] == -1)
-            {
-                save_loc1[pos] = i;
-            }
-            if (save_loc1[pos] != i)
-            {   
-                pos += 1;
-                save_loc1.Add(-1); 
-                save_loc2.Add(-1);
-                save_loc1[pos] = i;
-            }
             if (pointer[loc] == 0)
             {
-                i = save_loc2[pos];
-                if(save_loc1.Count <= 1)
-                {
-                    save_loc1[pos] = -1; save_loc2[pos] = -1;
-                }
-                else
-                {
-                    save_loc1.RemoveAt(pos);
-                    save_loc2.RemoveAt(pos);
-                    pos -= 1;
-                }
+                pos = save_loc1.IndexOf(i);
+                i = save_loc2[pos] - 1;
             }
             break;
         case ']':
-            if (save_loc2[pos] == -1)
-            {
-                save_loc2[pos] = i;
-            }
-            
             if (pointer[loc] != 0)
             {
+                pos = save_loc2.IndexOf(i);
                 i = save_loc1[pos] - 1;
             }
             break;
