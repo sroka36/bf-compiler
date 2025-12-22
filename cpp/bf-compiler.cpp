@@ -77,7 +77,8 @@ int main() {
         break;
       }
     }
-
+    
+  //출력 오류 수정
   cout << endl;
 
   return 0;
