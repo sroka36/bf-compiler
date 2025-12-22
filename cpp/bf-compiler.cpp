@@ -20,69 +20,63 @@ int main() {
   list<int> bracket_close;
   int pos = 0;
 
-  getline(cin, input);
+  getline(cin, input); //\n까지 입력을 받음 반대로 cin<<은 공백이 기준임.
 
   for (int j = 0; j < input.length(); j++) {
     switch (input[j]) {
-    case '[':
-      temp_loc.push_back(j);
-      break;
-    case ']':
-      if (temp_loc.size() != 0) {
-        bracket_open.push_back(temp_loc.back());
-        bracket_close.push_back(j);
-        temp_loc.pop_back();
-      }
-      break;
+      case '[':
+        temp_loc.push_back(j);
+        break;
+      case ']':
+        if (temp_loc.size() != 0) {
+          bracket_open.push_back(temp_loc.back());
+          bracket_close.push_back(j);
+          temp_loc.pop_back();
+        }
+        break;
     }
   }
 
   for (int i = 0; i < input.length(); i++) {
     switch (input[i]) {
-    case '+':
-      *(next(pointer.begin(), loc)) += 1;
-      break;
-    case '-':
-      *(next(pointer.begin(), loc)) -= 1;
-      break;
-    case '>':
-      loc += 1;
-      if (pointer.size() < loc + 1) {
-        pointer.push_back(0);
-      }
-      break;
-    case '<':
-      if (loc > 0) {
-        loc -= 1;
-      }
-      break;
-    case '.':
-      cout << char(*(next(pointer.begin(), loc)));
-      break;
-    case '[':
-      if (*(next(pointer.begin(), loc)) == 0) {
-        list<int>::iterator it =
-            find(bracket_open.begin(), bracket_open.end(), i);
-
-        if (it != bracket_open.end()) {
-          pos = std::distance(bracket_open.begin(), it);
+      case '+':
+        *(next(pointer.begin(), loc)) += 1;
+        break;
+      case '-':
+        *(next(pointer.begin(), loc)) -= 1;
+        break;
+      case '>':
+        loc += 1;
+        if (pointer.size() < loc + 1) {
+          pointer.push_back(0);
         }
-        i = *(next(bracket_close.begin(), pos)) - 1;
-      }
-      break;
-    case ']':
-      if (*(next(pointer.begin(), loc)) != 0) {
-        list<int>::iterator it =
-            find(bracket_close.begin(), bracket_close.end(), i);
+        break;
+      case '<':
+        if (loc > 0) { loc -= 1; }
+        break;
+      case '.':
+        cout << char(*(next(pointer.begin(), loc)));
+        break;
+      case '[':
+        if (*(next(pointer.begin(), loc)) == 0) {
 
-        if (it != bracket_close.end()) {
-          pos = std::distance(bracket_close.begin(), it);
+            pos = distance(bracket_open.begin(), 
+              find(bracket_open.begin(), bracket_open.end(), i));
+          
+          i = *(next(bracket_close.begin(), pos)) - 1;
         }
-        i = *(next(bracket_open.begin(), pos)) - 1;
+        break;
+      case ']':
+        if (*(next(pointer.begin(), loc)) != 0) {
+
+            pos = distance(bracket_close.begin(), 
+              find(bracket_close.begin(), bracket_close.end(), i));
+          
+          i = *(next(bracket_open.begin(), pos)) - 1;
+        }
+        break;
       }
-      break;
     }
-  }
 
   cout << endl;
 
