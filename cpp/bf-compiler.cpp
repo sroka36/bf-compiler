@@ -22,6 +22,7 @@ int main() {
 
   getline(cin, input); //\n까지 입력을 받음 반대로 cin<<은 공백이 기준임.
 
+  //괄호 찾기
   for (int j = 0; j < input.length(); j++) {
     switch (input[j]) {
       case '[':
@@ -37,6 +38,7 @@ int main() {
     }
   }
 
+  //본 구문: 리스트라서 iterator을 이용함
   for (int i = 0; i < input.length(); i++) {
     switch (input[i]) {
       case '+':
