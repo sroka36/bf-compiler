@@ -20,7 +20,7 @@ int main() {
   list<int> bracket_close;
   int pos = 0;
 
-  getline(cin, input); //\n까지 입력을 받음 반대로 cin<<은 공백이 기준임.
+  getline(cin, input); // \n까지 입력을 받음 반대로 cin<<은 공백이 기준임.
 
   //괄호 찾기
   for (int j = 0; j < input.length(); j++) {
